@@ -177,8 +177,10 @@ set.seed(234)
       
       #generate dividend price
       sim_dp = rep(0, data_length)
+      
       #generate initial observation
       if(phi >= 1) {sim_dp[1] = 0} else {sim_dp[1] = rnorm(1, 0, sqrt(cov_matrix[1, 1]/(1-phi^2)))}
+      
       #generate the rest of the observation
       for (j in 2:data_length)
       {
@@ -188,8 +190,10 @@ set.seed(234)
       
       #generate dividend growth
       sim_dg = rep(0, data_length)
+      
       #generate initial observation
       sim_dg[1] = rnorm(1, 0, sqrt(cov_matrix[2, 2]/(1-(phi*rho-1)^2)))
+      
       #generate the rest of the observation
       for (j in 2:data_length)
       {
@@ -207,14 +211,16 @@ set.seed(234)
       sim_reg_dp = dyn$lm(sim_dp ~ lag(sim_dp, -1))
       
       #get results from the regressions:
-      #return
-      sim_result[i, 1] = summary(sim_reg_ret)$coef[2, 1]
-      sim_result[i, 2] = summary(sim_reg_ret)$coef[2, 3]
-      #dividend growth
-      sim_result[i, 3] = summary(sim_reg_dg)$coef[2, 1]
-      sim_result[i, 4] = summary(sim_reg_dg)$coef[2, 3]
-      #dividend price ratio
-      sim_result[i, 5] = summary(sim_reg_dp)$coef[2, 1]
+        #return
+        sim_result[i, 1] = summary(sim_reg_ret)$coef[2, 1]
+        sim_result[i, 2] = summary(sim_reg_ret)$coef[2, 3]
+        
+        #dividend growth
+        sim_result[i, 3] = summary(sim_reg_dg)$coef[2, 1]
+        sim_result[i, 4] = summary(sim_reg_dg)$coef[2, 3]
+        
+        #dividend price ratio
+        sim_result[i, 5] = summary(sim_reg_dp)$coef[2, 1]
     }
     
     sim_result = as.data.frame(sim_result)
@@ -498,65 +504,65 @@ set.seed(234)
     phi = 1.01
     sim_excess7 = MCSim(iteration, phi, rho, data_length, cov_matrix)
     
-    Table5 = matrix(
-      c(
-        round(sum(sim_real3$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real1$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real4$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real5$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real2$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real6$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real7$br > OLS4_beta)/iteration*100,1),
-        round(sum(sim_real3$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real1$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real4$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real5$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real2$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real6$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_real7$bd > OLS5_beta)/iteration*100,1),
-        round(sum(sim_excess2$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess1$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess3$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess4$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess5$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess6$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess7$br > OLS7_beta)/iteration*100,1),
-        round(sum(sim_excess2$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess1$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess3$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess4$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess5$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess6$bd > OLS8_beta)/iteration*100,1),
-        round(sum(sim_excess7$bd > OLS8_beta)/iteration*100,1),
-        round(OLS6_sd/sqrt(1-0.9^2),2),
-        round(OLS6_sd/sqrt(1-OLS6_beta^2),2),
-        round(OLS6_sd/sqrt(1-0.96^2),2),
-        round(OLS6_sd/sqrt(1-0.98^2),2),
-        round(OLS6_sd/sqrt(1-0.99^2),2),
-        "$\\infty$",
-        "$\\infty$",
-        round(log(0.5, base = 0.9),1),
-        round(log(0.5, base = OLS6_beta),1),
-        round(log(0.5, base = 0.96),1),
-        round(log(0.5, base = 0.98),1),
-        round(log(0.5, base = 0.99),1),
-        "$\\infty$",
-        "$\\infty$"
-      ),
-      nrow = 7,
-      ncol = 6
-    )
-    
-    colnames(Table5) = c("$b_r$", "$b_d$", "$b_r$", "$b_d$", "$\\sigma (dp)$", "1/2 life")
-    rownames(Table5) = c("0.90", round(OLS6_beta, 3), "0.96", "0.98", "0.99", "1", "1.01")
-    
-    Table5 %>%
-      kbl(row.names = TRUE,
-          caption = paste("Table 5 - The effects of dividend-yield autocorrelation", "$\\phi$"),
-          escape = FALSE) %>%
-      add_header_above(c("Null $\\phi$"=1, "Real returns"=2, "Excess returns"=2, "Statistics"=2)) %>%
-      add_header_above(c(" "=1, "Percentage probability values"=4, "Other"=2)) %>%
-      kable_styling("striped", full_width = FALSE)
+  Table5 = matrix(
+    c(
+      round(sum(sim_real3$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real1$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real4$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real5$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real2$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real6$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real7$br > OLS4_beta)/iteration*100,1),
+      round(sum(sim_real3$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real1$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real4$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real5$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real2$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real6$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_real7$bd > OLS5_beta)/iteration*100,1),
+      round(sum(sim_excess2$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess1$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess3$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess4$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess5$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess6$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess7$br > OLS7_beta)/iteration*100,1),
+      round(sum(sim_excess2$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess1$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess3$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess4$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess5$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess6$bd > OLS8_beta)/iteration*100,1),
+      round(sum(sim_excess7$bd > OLS8_beta)/iteration*100,1),
+      round(OLS6_sd/sqrt(1-0.9^2),2),
+      round(OLS6_sd/sqrt(1-OLS6_beta^2),2),
+      round(OLS6_sd/sqrt(1-0.96^2),2),
+      round(OLS6_sd/sqrt(1-0.98^2),2),
+      round(OLS6_sd/sqrt(1-0.99^2),2),
+      "$\\infty$",
+      "$\\infty$",
+      round(log(0.5, base = 0.9),1),
+      round(log(0.5, base = OLS6_beta),1),
+      round(log(0.5, base = 0.96),1),
+      round(log(0.5, base = 0.98),1),
+      round(log(0.5, base = 0.99),1),
+      "$\\infty$",
+      "$\\infty$"
+    ),
+    nrow = 7,
+    ncol = 6
+  )
+  
+  colnames(Table5) = c("$b_r$", "$b_d$", "$b_r$", "$b_d$", "$\\sigma (dp)$", "1/2 life")
+  rownames(Table5) = c("0.90", round(OLS6_beta, 3), "0.96", "0.98", "0.99", "1", "1.01")
+  
+  Table5 %>%
+    kbl(row.names = TRUE,
+        caption = paste("Table 5 - The effects of dividend-yield autocorrelation", "$\\phi$"),
+        escape = FALSE) %>%
+    add_header_above(c("Null $\\phi$"=1, "Real returns"=2, "Excess returns"=2, "Statistics"=2)) %>%
+    add_header_above(c(" "=1, "Percentage probability values"=4, "Other"=2)) %>%
+    kable_styling("striped", full_width = FALSE)
 
     
 #FIGURE 5
