@@ -5,6 +5,8 @@ Also, another finding of Cochrane is that "Long-horizon return forecasts give th
 
 The dataset used in this project is the annual Center for Research in Security (CRSP) data from 1926 to 2017.
 
+## Table 1
+
 The first table demonstrate the results of the regressions:
 The first 3 rows are actual return against past dividend/price ratio, actual risk free return against past dividend/price ratio and dividend growth against past dividend/price ratio.
 The last 2 rows are log of return against log of past dividend/price ratio and log of dividend growth against log of past dividend/price ratio.
