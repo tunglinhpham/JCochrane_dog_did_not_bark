@@ -109,7 +109,7 @@ set.seed(234)
   )
   rownames(Table1) = c(
     "$R_{t+1} = a + b(D_t / P_t ) + \\epsilon_{t+1}$",
-    "$R_{t+1} - R^f_t = a + b(D_t / P_t ) + \\epsilon_{t+1}$",
+    "$R_{t+1} - R^f_{t+1} = a + b(D_t / P_t ) + \\epsilon_{t+1}$",
     "$D_{t+1} / D_t = a + b(D_t / P_t ) + \\epsilon_{t+1}$",
     "$r_{t+1} = a + b(d_t - p_t ) + \\epsilon^r_{t+1}$",
     "$\\Delta d_{t+1} = a + b(d_t - p_t ) + \\epsilon^{dp}_{t+1}$"
