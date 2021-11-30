@@ -19,6 +19,7 @@ However, in term of statistical significance, the predictability of return is no
 Professor Cochrane's argument is:
 >If both returns and dividend growth are unforecastable, then present value logic implies that the price/dividend ratio is constant, which it
 obviously is not.
-Therefore, the question is not just "Are returns forecastable?" or "Is dividend growth forecastable?", but "*Which* of dividend growth or return is forecastable?", or more specifically, "How much of each?".
+
+Therefore, the question is not just "Are returns forecastable?" or "Is dividend growth forecastable?", but "*Which* of dividend growth or return is forecastable?", or more specifically, "How much of each?". The null hypothesis now must contain both aspects: *returns are not forecastable while dividend growth is forecastable*.
 
 
