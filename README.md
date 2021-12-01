@@ -68,7 +68,7 @@ Since Left Hand Side equal Right Hand Side, we have equation (5) and (6):
 ![VAR 4](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR4.png)
 ![VAR 5](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR5.png)
 
-
+The same logic can be applied for excess log return & dividend growth less the interest rate, by substracting risk-free rate from log return and log dividend growth.
 
 
 
