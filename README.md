@@ -7,7 +7,7 @@ The dataset used in this project is the annual Center for Research in Security (
 
 The first question is: "Are stock returns predictable?". An attempt to answer the question is demonstrated in Table 1:
 
-## Table 1
+## Table 1 - Forecasting Regressions
 
 ![Table 1 - Forecasting Regressions](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Tables%20%26%20Figures/Table%201.png)
 R<sub>t+1</sub> is the real return (adjusted by inflation), R<sup>f</sup><sub>t+1</sub> is the real risk-free return, D<sub>t+1</sub>/D<sub>t</sub> is the dividend growth, D<sub>t</sub>/P<sub>t</sub> is past dividend/price ratio. Smaller letters represent the natural logarithm of their corresponding capital letters.
@@ -21,5 +21,56 @@ Professor Cochrane's argument is:
 obviously is not.
 
 Therefore, the question is not just "Are returns forecastable?" or "Is dividend growth forecastable?", but "*Which* of dividend growth or return is forecastable?", or more specifically, "How much of each?". The null hypothesis now must contain both aspects: *returns are not forecastable while dividend growth is forecastable*.
+
+## Cochrane's test configuration
+
+To start, Cochrane set up the first-order VAR:
+
+![VAR 1](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR1.png)
+
+### Linearization of definition of return
+
+Starting from the definition of return:
+
+![Linearization 1](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization1.png)
+
+Take natural log of both sides:
+
+![Linearization 2](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization2.png)
+
+Extracting the last component of the right hand side:
+
+![Linearization 3](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization3.png)
+
+Defining ρ and κ as follows:
+
+![Linearization 4](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization4.png)
+
+then
+
+![Linearization 5](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization5.png)
+
+Ignoring means, and we achieved the final equation (4)
+
+![Linearization 6](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/Linearization6.png)
+
+The whole process is called linearization of return definition, by [Campbell and Shiller (1988)](https://www.jstor.org/stable/2961997).
+
+### The relationship between the coefficients and error terms of the VAR
+
+From equation (4), replacing equation (1) to the Left Hand Side, and equation (2) & (3) to the Right Hand Side:
+
+![VAR 2](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR2.png)
+![VAR 3](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR3.png)
+
+Since Left Hand Side equal Right Hand Side, we have equation (5) and (6):
+
+![VAR 4](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR4.png)
+![VAR 5](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR5.png)
+
+
+
+
+
 
 
