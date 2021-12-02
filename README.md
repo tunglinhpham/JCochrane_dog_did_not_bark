@@ -63,7 +63,7 @@ From equation (4), replacing equation (1) to the Left Hand Side, and equation (2
 ![VAR 2](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR2.png)
 ![VAR 3](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR3.png)
 
-Since Left Hand Side equal Right Hand Side, we have equation (5) and (6):
+Since Left Hand Side equal Right Hand Side, we approximately have equation (5) and (6):
 
 ![VAR 4](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR4.png)
 ![VAR 5](https://github.com/tunglinhpham/JCochrane_dog_did_not_bark/blob/main/Math%20equations/VAR5.png)
